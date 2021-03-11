@@ -1,0 +1,35 @@
+input[type='text'] {
+    width: 350px;
+}
+
+.hidden {
+    display: none;
+}
+
+.email-hidden {
+    display: none;
+}
+
+.phone-active {
+    display: inline !important;
+
+}
+
+.email-active{
+    display: block;
+}
+
+.phone-position {
+    width: 90% !important;
+    display: inline;
+}
+
+label {
+    display: block;
+}
+
+.btn-hidden {
+    border: 2px solid deepskyblue;
+    outline: none;
+}
+
