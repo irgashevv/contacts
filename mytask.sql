@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 11 2021 г., 21:54
+-- Время создания: Мар 12 2021 г., 14:01
 -- Версия сервера: 5.7.29
 -- Версия PHP: 7.1.33
 
@@ -57,7 +57,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT для таблицы `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
