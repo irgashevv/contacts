@@ -18,7 +18,7 @@
 
         $count = mysqli_num_rows($query);
         if ($count == 0) {
-            $output = 'There was no search results';
+            $output = 'Такого контакта не существует в списке';
         } else {
             while ($row = mysqli_fetch_row($query)){
                 $fName = $row['1'];
@@ -42,10 +42,7 @@
 
 </nav>
 
-<?php
 
-print ("$output");
-?>
 <table class="table table-striped">
     <thead class="thead-dark">
     <tr>
@@ -75,7 +72,9 @@ print ("$output");
     <?php endforeach; ?>
     </tbody>
 </table>
-
+<?php
+    print ("$output");
+?>
 <?php
     include_once __DIR__ . "/../footer.php";
 ?>

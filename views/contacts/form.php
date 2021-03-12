@@ -11,7 +11,7 @@
 
         <div class="form-group">
             <label>Имя</label>
-                <input type="text" value="<?=$one['name'] ?? ''?>" name="name" class="form-control" required  autocomplete="off" placeholder="Введите Ваше Имя">
+                <input type="text" value="<?=$one['name'] ?? ''?>" name="name" class="form-control" required  autocomplete="off" placeholder="Введите Ваше Имя" maxlength="30" minlength="4">
         </div>
 
         <div class="form-group">
