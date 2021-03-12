@@ -49,7 +49,7 @@ class ContactsController
         {
             $contacts = new Contacts(
                 intval($_POST['id']),
-                ($_POST['name']),
+                $_POST['name'],
                 $_POST['mobile_number'],
                 $_POST['home_number'],
                 $_POST['email'],

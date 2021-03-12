@@ -19,7 +19,7 @@ class Router
 
         if (isset($_GET['action']))
         {
-            $action = htmlspecialchars($_GET['action']);
+            $action = htmlspecialchars($_GET['action'] ?? 'read');
             $objController = new $controller();
                 if (method_exists($objController, $action))
                 {
