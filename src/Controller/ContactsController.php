@@ -1,5 +1,6 @@
 <?php
 
+include_once __DIR__ . "/../model/Contacts.php";
 
 class ContactsController
 {
@@ -12,18 +13,13 @@ class ContactsController
 
     public function create()
     {
-        $one = [];
-
         include_once __DIR__ . "/../../views/contacts/form.php";
     }
 
     public function read()
     {
-        $result = mysqli_query($this->conn, "SELECT * from contacts ORDER by id desc");
-        $all = mysqli_fetch_all($result,MYSQLI_ASSOC);
-
+        $all = (new Contacts())->all();
         include_once __DIR__ . "/../../views/contacts/list.php";
-
     }
 
     public function update()
@@ -32,9 +28,7 @@ class ContactsController
 
         if (empty($id)) die('Undefined ID');
 
-        $result = mysqli_query($this->conn, "select * from contacts where id = $id");
-        $one = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        $one = reset($one);
+        $one = (new Contacts())->getById($id);
 
         if (empty($one)) die('Contact not found');
 
@@ -44,7 +38,7 @@ class ContactsController
     public function delete()
     {
         $id = (int) $_GET['id'];
-        mysqli_query($this->conn, "delete from contacts where id = $id");
+        (new Contacts())->deleteById($id);
 
         return $this->read();
     }
@@ -53,14 +47,14 @@ class ContactsController
     {
         if (!empty($_POST))
         {
-            $id = intval($_POST['id']);
-            $name = ($_POST['name']);
-            $mobileNumber = $_POST['mobile_number'];
-            $homeNumber = $_POST['home_number'];
-            $email = $_POST['email'];
-            $reserveEmail = $_POST['reserve_email'];
-
-            $contacts = new Contacts($id, $name, $mobileNumber, $homeNumber, $email, $reserveEmail);
+            $contacts = new Contacts(
+                intval($_POST['id']),
+                ($_POST['name']),
+                $_POST['mobile_number'],
+                $_POST['home_number'],
+                $_POST['email'],
+                $_POST['reserve_email']
+        );
             $contacts->save();
         }
         return $this->read();
