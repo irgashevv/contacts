@@ -5,21 +5,27 @@ class Router
 {
     public function index()
     {
-        if (isset($_GET['model']) && $_GET['model'] === 'contacts') {
-            $controller = 'ContactsController';
-        }
+        $model = $_GET['model'] ?? 'contacts';
+        $model = htmlspecialchars($model);
+        $model = ucfirst($model);
+        $controller = $model . 'Controller';
 
-        if (empty($controller)) {
+        if (!file_exists(__DIR__ . "/../Controller/" . $controller . ".php"))
+        {
             die("Controller not found");
         }
 
-
         include_once __DIR__ . "/../Controller/" . $controller . ".php";
-        if (isset($_GET['action']) && $_GET['action'] === 'create') {
-            (new $controller())->create();
-        }
-        if (isset($_GET['action']) && $_GET['action'] === 'update') {
-            (new $controller())->update();
+
+        if (isset($_GET['action']))
+        {
+            $action = htmlspecialchars($_GET['action']);
+            $objController = new $controller();
+                if (method_exists($objController, $action))
+                {
+                    return $objController->$action();
+                }
+                    die('Action not found');
         }
     }
 }
