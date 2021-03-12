@@ -11,27 +11,27 @@
 
         <div class="form-group">
             <label>Имя</label>
-                <input type="text" value="<?=$one['name'] ?? ''?>" name="name" class="form-control" required  autocomplete="off">
+                <input type="text" value="<?=$one['name'] ?? ''?>" name="name" class="form-control" required  autocomplete="off" placeholder="Введите Ваше Имя">
         </div>
 
         <div class="form-group">
             <label>Номер телефона</label>
-                <input type="number" value="<?=$one['mobile_number'] ?? ''?>" name="mobile_number"  class="form-control" required  autocomplete="off">
+                <input type="number" value="<?=$one['mobile_number'] ?? ''?>" name="mobile_number"  class="form-control" required  autocomplete="off" placeholder="Введите Ваш номер телефона">
         </div>
 
         <div class="form-group">
             <label>Домашний Номер</label>
-                <input type="number"  value="<?=$one['home_number'] ?? ''?>" name="home_number"  class="form-control"  autocomplete="off">
+                <input type="number"  value="<?=$one['home_number'] ?? ''?>" name="home_number"  class="form-control"  autocomplete="off" placeholder="По желанию">
         </div>
 
         <div class="form-group">
-            <label>Email</label>
-                <input type="email"  value="<?=$one['email'] ?? ''?>" name="email"  class="form-control" required  autocomplete="off">
+            <label>Адрес электронной почты</label>
+                <input type="email"  value="<?=$one['email'] ?? ''?>" name="email"  class="form-control" required  autocomplete="off" placeholder="Введите адрес электронной почты">
         </div>
 
         <div class="form-group">
-            <label>Reserve Email</label>
-                <input type="email"  value="<?=$one['reserve_email'] ?? ''?>" name="reserve_email"  class="form-control" autocomplete="off">
+            <label>Резервный электронный адрес</label>
+                <input type="email"  value="<?=$one['reserve_email'] ?? ''?>" name="reserve_email"  class="form-control" autocomplete="off" placeholder="По желанию">
         </div>
 
         <div>

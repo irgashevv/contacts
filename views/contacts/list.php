@@ -1,14 +1,51 @@
 <?php
     include_once __DIR__ . "/../header.php";
+    $connection = mysqli_connect(
+            "localhost",
+            'root',
+            'root',
+            'mytask') or die("Could not Connect");
+    $output = '';
+
+    if (isset($_POST['search'])) {
+        $searchQ = $_POST['search'];
+        $searchQ = preg_replace("#[^0-9a-z]#i","",$searchQ);
+
+//        $query = mysqli_query($connection,"SELECT * FROM `contacts` WHERE
+//            `name` LIKE '%$searchQ%' or `mobile_number` LIKE '%$searchQ%'") or die("Could not search");
+        $query = mysqli_query($connection, "SELECT * FROM contacts WHERE name LIKE '%$searchQ%' or 
+                `mobile_number` LIKE '%$searchQ%'") or die("Could not search");
+
+        $count = mysqli_num_rows($query);
+        if ($count == 0) {
+            $output = 'There was no search results';
+        } else {
+            while ($row = mysqli_fetch_row($query)){
+                $fName = $row['1'];
+                $numberR = $row['2'];
+                $id = $row['0'];
+                $output .= '<div> '.$fName.' '.$numberR.'</div>';
+            }
+
+        }
+    }
 ?>
 <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand">Контакты</a>
     <a href="/?model=contacts&action=create" class="btn btn-primary">Добавить контакт</a>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+
+    <form method="post" class="form-inline">
+<!--        <label>Search</label>-->
+        <input type="text" name="search" placeholder="Поиск Контактов" class="form-control">
+        <input type="submit" value="Искать" class="btn btn-secondary ml-3">
     </form>
+
 </nav>
+
+<?php
+
+print ("$output");
+?>
 <table class="table table-striped">
     <thead class="thead-dark">
     <tr>
