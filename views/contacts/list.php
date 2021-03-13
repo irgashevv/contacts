@@ -46,7 +46,8 @@
 <?php
     print ("$output");
 ?>
-<table class="table table-striped">
+<div class="container">
+<table class="table table-striped ">
     <thead class="thead-dark">
     <tr>
         <th>Имя</th>
@@ -75,7 +76,7 @@
     <?php endforeach; ?>
     </tbody>
 </table>
-    <nav aria-label="..." class="justify-content-between">
+    <nav aria-label="..." class="fixed-bottom float-right ">
         <ul class="pagination">
             <li class="page-item disabled">
                 <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -90,6 +91,7 @@
             </li>
         </ul>
     </nav>
+</div>
 <?php
     include_once __DIR__ . "/../footer.php";
 ?>

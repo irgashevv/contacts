@@ -4,7 +4,6 @@
     margin: 0;
 }
 
-.form-div
-{
-    margin-top: 150px;
+body {
+    height: 110vh;
 }
