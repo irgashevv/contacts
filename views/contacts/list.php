@@ -34,20 +34,15 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand">Контакты</a>
     <a href="/?model=contacts&action=create" class="btn btn-primary">Добавить контакт</a>
-
-    <form method="post" class="form-inline">
-<!--        <label>Search</label>-->
-        <input type="text" name="search" placeholder="Поиск Контактов" class="form-control">
-        <input type="submit" value="Искать" class="btn btn-secondary ml-3">
-    </form>
-
 </nav>
-
 <?php
     print ("$output");
 ?>
 <div class="container">
-<table class="table table-striped ">
+
+    <?php include_once "search.php";?>
+
+<table class="table table-striped mt-4">
     <thead class="thead-dark">
     <tr>
         <th>Имя</th>
@@ -67,16 +62,16 @@
             <td><?=$d['email']?></td>
             <td><?=$d['reserve_email']?></td>
             <td>
-                <a href="/?model=contacts&action=update&id=<?=$d['id']?>" class="btn btn-primary">
+                <a href="/?model=contacts&action=update&id=<?=$d['id']?>" class="btn btn-primary btn-sm">
                     Редактировать
                 </a>
-                <a href="/?model=contacts&action=delete&id=<?=$d['id']?>" class="btn btn-danger">Удалить</a>
+                <a href="/?model=contacts&action=delete&id=<?=$d['id']?>" class="btn btn-danger btn-sm">Удалить</a>
             </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
-    <nav aria-label="..." class="fixed-bottom float-right ">
+    <nav aria-label="..." class="float-right ">
         <ul class="pagination">
             <li class="page-item disabled">
                 <a class="page-link" href="#" tabindex="-1">Previous</a>

@@ -57,7 +57,7 @@ class Contacts
                         '" . $this->reserveEmail . "'
                     )";
             }
-            mysqli_query($this->conn, $query);
+            mysqli_query($this->conn, $query) ;
     }
 
     public function all()
@@ -77,4 +77,9 @@ class Contacts
     {
         mysqli_query($this->conn, "delete from contacts where id = $id");
     }
+
+//    public function search()
+//    {
+//
+//    }
 }

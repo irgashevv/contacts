@@ -8,5 +8,6 @@
     <title>Контакты</title>
     <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../dist/css/style.css">
+    
 </head>
 <body>
