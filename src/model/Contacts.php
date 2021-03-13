@@ -58,12 +58,18 @@ class Contacts
                         '" . $this->reserveEmail . "'
                     )";
             }
-            mysqli_query($this->conn, $query);
+            $error = mysqli_error($this->conn);
+            mysqli_query($this->conn, $query) or die(mysqli_error($this->conn));
     }
 
-    public function all($limit = self::NUMBER_CONTACTS_PER_PAGE, $offset = 0)
+    public function all($limit = self::NUMBER_CONTACTS_PER_PAGE, $offset = 0, $conditions)
     {
-        $result = mysqli_query($this->conn, "SELECT * from contacts ORDER by id desc limit $offset, $limit");
+        $query = "SELECT * from contacts";
+        if ($conditions) {
+            $query .= " WHERE $conditions";
+        }
+        $query .= " ORDER by id desc limit $offset, $limit";
+        $result = mysqli_query($this->conn, $query );
         return mysqli_fetch_all($result,MYSQLI_ASSOC);
     }
 

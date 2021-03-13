@@ -1,3 +1,16 @@
+<?php
+$url = $_SERVER['REQUEST_URI'];
+
+if($url == '/?model=contacts&action=read' || $url == '/?model=contacts&action=save') {
+    $city = 'Добавить контакт';
+    $town = 'create';
+}
+else {
+    $city = 'Список Контактов';
+    $town = 'read';
+}
+?>
+
 <!doctype html>
 <html lang="ru">
 <head>
@@ -8,22 +21,11 @@
     <title>Контакты</title>
     <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../dist/css/style.css">
-<?php
-    $url = $_SERVER['REQUEST_URI'];
-    if($url == '/?model=contacts&action=read')
-    $city = '<a href="/?model=contacts&action=create" class="btn btn-primary">Добавить контакт</a>';
-    else {
-    $city = '<a href="/?model=contacts&action=read" class="btn btn-primary">Список Контактов</a>';
-    }
-?>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">Контакты</a>
-        <a href="/?model=contacts&action=create" class="btn btn-primary">Добавить контакт</a>
-    </nav>
 
     <nav class="navbar navbar-light bg-light justify-content-between">
         <a class="navbar-brand">Контакты</a>
-        <a href="/?model=contacts&action=read" class="btn btn-primary">Список Контактов</a>
+        <a href="/?model=contacts&action=<?php echo $town ?>" class="btn btn-primary"><?php echo $city ?></a>
     </nav>
+
 </head>
 <body>

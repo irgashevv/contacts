@@ -27,8 +27,6 @@ class Router
                 }
                     die('Action not found');
         }
-//        if ($_GET['model'] == "" && $_GET['action'] == "" ) {
-            header("Location: http://contacts/?model=contacts&action=read");
-//        }
+            header("Location: /?model=contacts&action=read");
     }
 }

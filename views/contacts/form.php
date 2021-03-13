@@ -9,10 +9,6 @@
     }
 ?>
 
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">Контакты</a>
-        <a href="/?model=contacts&action=read" class="btn btn-primary">Список Контактов</a>
-    </nav>
     <div class="form-div">
             <h1 class="display-4 text-center mt-5"> <?= $city ?> </h1>
         <form class="form-horizontal w-50 container border border-info rounded" action="/?model=contacts&action=save" method="post" enctype="multipart/form-data">
@@ -26,12 +22,12 @@
 
                 <div class="form-group">
                     <label>Номер телефона</label>
-                        <input type="text"  value="<?=$one['mobile_number'] ?? ''?>" name="mobile_number"  class="form-control" required  autocomplete="off" placeholder="Введите Ваш номер телефона">
+                        <input type="number"  value="<?=$one['mobile_number'] ?? ''?>" name="mobile_number"  class="form-control" required  autocomplete="off" placeholder="Введите Ваш номер телефона">
                 </div>
 
                 <div class="form-group">
                     <label>Домашний Номер</label>
-                        <input type="text"  value="<?=$one['home_number'] ?? ''?>" name="home_number"  class="form-control"  autocomplete="off" placeholder="По желанию">
+                        <input type="number"  value="<?=$one['home_number'] ?? ''?>" name="home_number"  class="form-control"  autocomplete="off" placeholder="По желанию">
                 </div>
 
                 <div class="form-group">
@@ -46,6 +42,19 @@
 
                 <div>
                     <input type="submit" class="btn btn-info btn-save" value="Сохранить">
+                </div>
+            </div>
+            <p>
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Link with href
+                </a>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Button with data-target
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
                 </div>
             </div>
         </form>
