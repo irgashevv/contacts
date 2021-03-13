@@ -18,7 +18,11 @@ class ContactsController
 
     public function read()
     {
-        $all = (new Contacts())->all();
+        $limit = intval($_GET['limit'] ?? Contacts::NUMBER_CONTACTS_PER_PAGE);
+        $offset = (intval($_GET['page'] ?? 1) - 1) * $limit;
+        $offset = $offset < 0 ? 0 : $offset;
+
+        $all = (new Contacts())->all($limit, $offset);
         include_once __DIR__ . "/../../views/contacts/list.php";
     }
 

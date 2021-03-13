@@ -3,6 +3,7 @@
 
 class Contacts
 {
+    const NUMBER_CONTACTS_PER_PAGE = 7;
 
     public $id;
     public $name;
@@ -57,12 +58,12 @@ class Contacts
                         '" . $this->reserveEmail . "'
                     )";
             }
-            mysqli_query($this->conn, $query) ;
+            mysqli_query($this->conn, $query);
     }
 
-    public function all()
+    public function all($limit = self::NUMBER_CONTACTS_PER_PAGE, $offset = 0)
     {
-        $result = mysqli_query($this->conn, "SELECT * from contacts ORDER by id desc");
+        $result = mysqli_query($this->conn, "SELECT * from contacts ORDER by id desc limit $offset, $limit");
         return mysqli_fetch_all($result,MYSQLI_ASSOC);
     }
 
@@ -77,9 +78,4 @@ class Contacts
     {
         mysqli_query($this->conn, "delete from contacts where id = $id");
     }
-
-//    public function search()
-//    {
-//
-//    }
 }
