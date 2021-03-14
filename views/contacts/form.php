@@ -11,7 +11,7 @@
 
     <div class="form-div">
             <h1 class="display-4 text-center mt-5"> <?= $city ?> </h1>
-        <form class="form-horizontal w-50 container border border-info rounded" action="/?model=contacts&action=save" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal w-50 container border border-info rounded " action="/?model=contacts&action=save" method="post" enctype="multipart/form-data">
             <div class="card-body">
                 <input type="hidden" value="<?=$one['id'] ?? ''?>" name="id">
 

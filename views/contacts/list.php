@@ -32,7 +32,7 @@
             <td><?=$d['reserve_email']?></td>
             <td>
                 <a href="/?model=contacts&action=update&id=<?=$d['id']?>" class="btn btn-primary btn-sm">Редактировать</a>
-                <a href="/?model=contacts&action=delete&id=<?=$d['id']?>" class="btn btn-danger btn-sm">Удалить</a>
+                <a href="/?model=contacts&action=delete&id=<?=$d['id']?>" class="btn btn-danger btn-sm" id="delete-btn">Удалить</a>
             </td>
         </tr>
     <?php endforeach; ?>
