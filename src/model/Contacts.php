@@ -68,7 +68,7 @@ class Contacts
         if ($conditions) {
             $query .= " WHERE $conditions";
         }
-        $query .= " ORDER by id desc limit $offset, $limit";
+        $query .= " ORDER by `name` limit $offset, $limit";
         $result = mysqli_query($this->conn, $query );
         return mysqli_fetch_all($result,MYSQLI_ASSOC);
     }
