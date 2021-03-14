@@ -20,41 +20,33 @@
                         <input type="text" value="<?=$one['name'] ?? ''?>" name="name" class="form-control" required  autocomplete="off" placeholder="Введите Ваше Имя" maxlength="30" minlength="4">
                 </div>
 
-                <div class="form-group">
-                    <label>Номер телефона</label>
+                <label>Номер телефона</label>
+                <div class="form-group d-flex">
                         <input type="number"  value="<?=$one['mobile_number'] ?? ''?>" name="mobile_number"  class="form-control" required  autocomplete="off" placeholder="Введите Ваш номер телефона">
+                    <a class="btn btn-primary ml-2" data-toggle="collapse" href="#hide-number" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">+</a>
                 </div>
 
-                <div class="form-group">
-                    <label>Домашний Номер</label>
-                        <input type="number"  value="<?=$one['home_number'] ?? ''?>" name="home_number"  class="form-control"  autocomplete="off" placeholder="По желанию">
+                <div class="collapse multi-collapse" id="hide-number">
+                    <div class="form-group">
+                        <label>Домашний Номер</label>
+                            <input type="number"  value="<?=$one['home_number'] ?? ''?>" name="home_number"  class="form-control"  autocomplete="off" placeholder="По желанию">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Адрес электронной почты</label>
+                <label>Адрес электронной почты</label>
+                <div class="form-group d-flex">
                         <input type="email"  value="<?=$one['email'] ?? ''?>" name="email"  class="form-control" required  autocomplete="off" placeholder="Введите адрес электронной почты">
+                    <button class="btn btn-primary ml-2" type="button" data-toggle="collapse" data-target="#hide-email" aria-expanded="false" aria-controls="multiCollapseExample2">+</button>
                 </div>
 
+                <div class="collapse multi-collapse" id="hide-email">
                 <div class="form-group">
                     <label>Резервный электронный адрес</label>
                         <input type="email"  value="<?=$one['reserve_email'] ?? ''?>" name="reserve_email"  class="form-control" autocomplete="off" placeholder="По желанию">
                 </div>
-
+                </div>
                 <div>
                     <input type="submit" class="btn btn-info btn-save" value="Сохранить">
-                </div>
-            </div>
-            <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Link with href
-                </a>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    Button with data-target
-                </button>
-            </p>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
                 </div>
             </div>
         </form>

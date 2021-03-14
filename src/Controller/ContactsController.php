@@ -21,6 +21,7 @@ class ContactsController
         $limit = intval($_GET['limit'] ?? Contacts::NUMBER_CONTACTS_PER_PAGE);
         $offset = (intval($_GET['page'] ?? 1) - 1) * $limit;
         $offset = $offset < 0 ? 0 : $offset;
+        $query = '';
         if (isset($_GET['search'])) {
             $searchQ = $_GET['search'];
 
@@ -29,7 +30,6 @@ class ContactsController
                 `home_number` LIKE '%$searchQ%' or
                 `email` LIKE '%$searchQ%' or
                 `reserve_email` LIKE '%$searchQ%'";
-
         }
         $all = (new Contacts())->all($limit, $offset, $query);
         include_once __DIR__ . "/../../views/contacts/list.php";
